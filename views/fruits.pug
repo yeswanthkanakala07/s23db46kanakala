@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  -
+    let results = [
+      { name: "Apple", color: "Red", quantity: 10 },
+      { name: "Banana", color: "Yellow", quantity: 5 },
+      { name: "Orange", color: "Orange", quantity: 8 }
+    ]
+
+  .container-fluid
+    .row
+      -
+      for result, index in results
+        .col-sm-2(onclick=`buy(${index})`)
+          p #{result.name}
+          p #{result.color}
+          p Quantity: #{result.quantity}
+
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index+1}`);
+    }
