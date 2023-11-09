@@ -4,5 +4,5 @@ name: String,
 color: String,
 quantity: Number
 })
-module.exports = mongoose.model("Fruit",
+module.exports = mongoose.model("fruit",
 fruitSchema)

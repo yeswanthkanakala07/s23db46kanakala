@@ -14,7 +14,7 @@ mongoose.connect(connectionString);
 
 
 
-var Fruit = require("./models/fruit");
+var fruit = require("./models/fruit");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fruitsRouter = require('./routes/fruits');
@@ -70,22 +70,22 @@ db.once("open", function () {
 // We can seed the collection if needed on server start
 async function recreateDB() {
   // Delete everything
-  await Fruit.deleteMany();
+  await fruit.deleteMany();
 
-  let instance1 = new Fruit({ name: "Apple", color: 'red', quantity: 15 });
+  let instance1 = new fruit({ name: "Apple", color: 'red', quantity: 15 });
   instance1.save().then(doc => {
     console.log("First object saved")}
   ).catch(err => {
     console.error(err)
   });
 
-  let instance2 = new Fruit({name: "Mango", color: 'Yellow',quantity: 10});
+  let instance2 = new fruit({name: "Mango", color: 'Yellow',quantity: 10});
   instance2.save().then(doc => {
     console.log("Second object saved")}
   ).catch(err => {
     console.error(err)});
 
-  let instance3 = new Fruit({name: "Orange", color: 'Orange',quantity: 5});
+  let instance3 = new fruit({name: "Orange", color: 'Orange',quantity: 5});
   instance3.save().then(doc => {
     console.log("Third object saved")
   }
