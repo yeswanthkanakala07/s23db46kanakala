@@ -12,8 +12,6 @@ mongoose = require('mongoose');
 mongoose.connect(connectionString);
 
 
-
-
 var fruit = require("./models/fruit");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -79,13 +77,13 @@ async function recreateDB() {
     console.error(err)
   });
 
-  let instance2 = new fruit({name: "Mango", color: 'Yellow',quantity: 10});
+  let instance2 = new fruit({name: "Mango", color: "Yellow" ,quantity: 10});
   instance2.save().then(doc => {
     console.log("Second object saved")}
   ).catch(err => {
     console.error(err)});
 
-  let instance3 = new fruit({name: "Orange", color: 'Orange',quantity: 5});
+  let instance3 = new fruit({name: "Orange", color: "Orange",quantity: 5});
   instance3.save().then(doc => {
     console.log("Third object saved")
   }

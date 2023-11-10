@@ -1,8 +1,5 @@
 var fruit = require('../models/fruit');
-// List of all Costumes
-exports.fruit_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: fruit list');
-};
+
 
 // for a specific Costume.
 exports.fruit_detail = async function(req, res) {
@@ -53,7 +50,7 @@ let toUpdate = await fruit.findById( req.params.id)
 if(req.body.name)
 toUpdate.name = req.body.name;
 if(req.body.color) toUpdate.cost = req.body.color;
-if(req.body.quantity) toUpdate.size = req.body.quantity;
+if(req.body.quantity) toUpdate.quanitiy = req.body.quantity;
 let result = await toUpdate.save();
 console.log("Sucess " + result)
 res.send(result)
