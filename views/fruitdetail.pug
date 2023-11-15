@@ -1,20 +1,23 @@
 extends layout
 block content
  h1= title
- - let fruitid = toShow._id
- - let name = toShow.name
- - let color = toShow.color
- - let quantity = toShow.quantity
- div
- div.row
- div(class='fruitsAttr mr-3') Costume ID is:
- div #{fruitid}
- div.row
- div(class='fruitsAttr mr-3') Fruit name is:
- div #{name}
- div.row
- div(class='fruitsAttr mr-3') Fruit color is:
- div #{color}
- div.row
- div(class='fruitsAttr mr-3') Fruit Quantity is:
- div #{quantity}
+ if (toShow == null)
+    .alert.alert-warning No instance to delete
+ else
+    - let fruitid = toShow._id
+    - let name = toShow.name
+    - let color = toShow.color
+    - let quantity = toShow.quantity
+    div
+        div.row
+            div(class='fruitsAttr mr-3') fruit ID is:
+            div #{fruitid}
+        div.row
+            div(class='fruitsAttr mr-3') Fruit name is:
+            div #{name}
+        div.row
+            div(class='fruitsAttr mr-3') Fruit color is:
+            div #{color}
+        div.row
+            div(class='fruitsAttr mr-3') Fruit Quantity is:
+            div #{quantity}

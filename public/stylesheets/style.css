@@ -1,13 +1,64 @@
-body {
+ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f4f4f4; 
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none; 
+  transition: color 0.3s ease;
 }
+
 
 .fruitsAttr {
   background-color: aquamarine;
   width: 120px;
- }
+  padding: 10px;
+  border-radius: 5px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+  margin-bottom: 10px; 
+  transition: transform 0.3s ease; 
+}
+
+.fruitsAttr:hover {
+  transform: scale(1.05); 
+}
+
+#fruitForm {
+  background-color: rgb(14, 237, 218);
+  width: 325px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+h1 {
+  color: rgb(218, 196, 29);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2); 
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+  width: 100%; 
+  padding: 8px;
+  margin: 6px 0 20px 0; 
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+  box-sizing: border-box; 
+}
+
+input[type="submit"] {
+  background-color: #4CAF50; 
+  color: white;
+  border: none; 
+  cursor: pointer; 
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049; 
+}
+
