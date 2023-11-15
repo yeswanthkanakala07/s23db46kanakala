@@ -35,11 +35,19 @@ exports.fruit_create_post = async function(req, res) {
     }
     };
 
-// Handle Costume delete form on DELETE.
-exports.fruit_delete = function(req, res) {
-    res.send('NOT IMPLEMENTED: fruit delete DELETE ' + req.params.id);
-};
-
+    // Handle Fruit delete on DELETE.
+    exports.fruit_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await fruit.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+    };
+    
 // Handle Costume update form on PUT.
 exports.fruit_update_put = async function(req, res) {
 console.log(`update on id ${req.params.id} with body
