@@ -22,7 +22,6 @@ var resourceRouter = require('./routes/resource');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-
 passport.use(new LocalStrategy(
   function(username, password, done) {
   Account.findOne({ username: username })
@@ -57,10 +56,16 @@ app.use(require('express-session')({
   resave: false,
   saveUninitialized: false
   }));
-  app.use(passport.initialize());
-  app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
   
-
+//passport config
+// Use the existing connection
+// The Account model
+var Account =require('./models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 
 app.use(express.static(path.join(__dirname, 'public')));
