@@ -1,19 +1,31 @@
+//- extends layout
+
+//- block content
+//-   h1= title
+//-   p Welcome to world of web development! #{title}
+//-   button(type="button", class="btn btn-secondary", onclick="goFaster()") Press Me
+//-   div#faster Increase the speed
+
+//-   script. 
+//-     var mph = 20;
+//-     var change = 1;
+
+//-     function goFaster() {
+//-       mph+= change;
+//-       change++;
+//-       document.getElementById("faster").textContent = 'MPH' + mph + ' with change ' + change;
+//-     }
+  
+//-   a(href="/fruits") View Fruits
 extends layout
 
 block content
-  h1= title
-  p Welcome to world of web development! #{title}
-  button(type="button", class="btn btn-secondary", onclick="goFaster()") Press Me
-  div#faster Increase the speed
-
-  script. 
-    var mph = 20;
-    var change = 1;
-
-    function goFaster() {
-      mph+= change;
-      change++;
-      document.getElementById("faster").textContent = 'MPH' + mph + ' with change ' + change;
-    }
-  
-  a(href="/fruits") View Fruits
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/fruits") Take me to Fruits
+    br
+    a(href="/logout") Logout

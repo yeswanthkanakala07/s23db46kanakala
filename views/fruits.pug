@@ -4,7 +4,7 @@ block content
   h1= title
 
   -let items = results
-
+  a(class="btn btn-success" href="/fruits/create") Create
   .container-fluid
     .row-m-1
       for result, index in results
@@ -14,6 +14,8 @@ block content
           p #{result.color}
           p Quantity: #{result.quantity}
         button.btn(class="btn-primary ml-1", onclick= destination) Update
+        a(class="btn btn-danger" href=`/fruits/delete?id=${result._id}`) Delete
+        a(class="btn btn-dark" href=`/fruits/detail?id=${result._id}`) Details
 
   script.
     function buy(index) {
